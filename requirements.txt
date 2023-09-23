@@ -1,0 +1,6 @@
+bcrypt>=3.2.2
+fastapi>=0.103.1
+jsthon>=0.4.1
+pydantic>=2.3.0
+pydantic_core>=2.6.3
+uvicorn>=0.23.2
