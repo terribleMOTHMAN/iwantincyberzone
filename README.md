@@ -8,9 +8,11 @@
 ## Нужно установить
 + `bcrypt`>=3.2.2
 + `fastapi`>=0.103.1
-+ `jsthon`>=0.4.1
 + `pydantic`>=2.3.0
 + `uvicorn`>=0.23.2
++ `motor`>=3.3.1
++ `envparse`>=0.2.0
++ `starlette`>=0.27.0
 
 ## Установка
 ```cli
