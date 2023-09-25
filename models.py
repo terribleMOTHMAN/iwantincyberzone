@@ -1,8 +1,9 @@
 import pydantic
+from pydantic.fields import Field
 
 
 class User(pydantic.BaseModel):
-    id: int
+    id: int = Field(ge=0)
     username: str
     password: str
     created_at: str
@@ -10,8 +11,8 @@ class User(pydantic.BaseModel):
 
 
 class Booking(pydantic.BaseModel):
-    id: int
-    user_id: str
+    id: int = Field(ge=0)
+    user_id: int = Field(ge=0)
     start_time: str
     end_time: str
     comment: str
