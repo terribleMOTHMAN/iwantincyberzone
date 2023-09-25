@@ -43,7 +43,7 @@ async def user_delete(index: int, request: Request):
 @api.post('/booking/create')
 async def booking_create(book: models.Booking, request: Request):
     mongo_client: AsyncIOMotorClient = request.app.state.mongo_client["reservation_database"]
-    cursor = mongo_client.book.find({}).to_list(length=1000)
+    cursor = mongo_client.booking.find({}).to_list(length=1000)
     fl1 = True
     for doc in await cursor:
         if doc["id"] == book.id:
@@ -57,7 +57,7 @@ async def booking_create(book: models.Booking, request: Request):
             break
     if fl1 and fl2:
         await mongo_client.booking.insert_one(book.model_dump())
-        return {'SUCCES': False}
+        return {'SUCCES': True}
     else:
         return {"SUCCES": False}
 
@@ -72,9 +72,9 @@ async def booking_delete(index: int, request: Request):
 @api.get('/booking/get')
 async def booking_get(request: Request):
     booking_list = []
-    mongo_client: AsyncIOMotorClient = request.app.state.mongo_client["test_database"]
-    cursor = mongo_client.booking.find({})
-    for document in await cursor.to_list(length=100):
+    mongo_client: AsyncIOMotorClient = request.app.state.mongo_client["reservation_database"]
+    cursor = mongo_client.booking.find({}).to_list(length=1000)
+    for document in await cursor:
         document["_id"] = str(document["_id"])
         booking_list.append(document)
     return {"SUCCES": booking_list}
