@@ -23,10 +23,9 @@ pip install -r requirements.txt
 
 ## Запуск
 ```cli
-python create_db.py
 python main.py
 ```
 
 ## Запросы
-Заходим на /docs, где все описано!
+Заходим на http://127.0.0.1:8000/docs, где все описано!
 ![image](https://github.com/terribleMOTHMAN/iwantincyberzone/assets/65505901/c4b03b12-af61-49ba-9e54-df35fdf4b654)
